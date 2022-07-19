@@ -11,10 +11,10 @@
 	
 	if (isset($_POST['registerBtn']))
 	{ 
-    $username = $_POST['username']; 
-    $email = $_POST['email']; 
-    $passwd = md5($_POST['passwd']); 
-    $passwd_again = md5($_POST['confirm_password']); 
+	    $username = $_POST['username']; 
+	    $email = $_POST['email']; 
+	    $passwd = md5($_POST['passwd']); 
+	    $passwd_again = md5($_POST['confirm_password']); 
     }
     
 	// make sure the two passwords match

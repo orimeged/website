@@ -13,7 +13,8 @@
 	while ($row_users = mysqli_fetch_array($result)) {
 		//output a row here
 		$data_new = $row_users['data'];
-		echo "<tr><td>".($row_users['name'])."</td>  <td>   </td>   <td> ".(htmlentities($data_new))."</td></tr>";
+		$name_new = $row_users['name'];
+		echo "<tr><td>". (htmlentities($name_new)) ."</td>  <td>   </td>   <td> " . (htmlentities($data_new)) . "</td></tr>";
 	}
 
 	echo "</table>";
