@@ -18,7 +18,8 @@
     }
     
 	// make sure the two passwords match
-	if ($passwd === $passwd_again){
+	if ($passwd === $passwd_again)
+	{
 		// make sure the password meets the min strength requirements
 		if ( strlen($passwd) >= 4   && strpbrk($email, "@.") != false )
 		{
@@ -40,10 +41,12 @@
 					 echo "<script>alert('Sorry, please do again')</script>"; 
 				 
 			}
+
 			$username = '';
 			$email = '';
 			$_POST['passwd'] = '';
-			$_POST['confirm_password']= ''
+			$_POST['confirm_password']= '';
+		}
 
 		
 
