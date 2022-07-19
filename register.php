@@ -45,7 +45,7 @@
 			$_POST['passwd'] = '';
 			$_POST['confirm_password']= ''
 
-		}
+		
 
 	}
 	else
