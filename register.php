@@ -23,13 +23,14 @@
 		// make sure the password meets the min strength requirements
 		if ( strlen($passwd) >= 4   && strpbrk($email, "@.") != false )
 		{
-			$result = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'  AND username = '$username'");
+			$result = mysqli_query($conn, "SELECT * FROM users WHERE email='$email' OR username = '$username'");
 			if (mysqli_num_rows($result) > 0)
 			{
 				echo "<script>alert('The user already exists .')</script>";
 			}
 			else
 			{
+
 				$sql = "INSERT INTO users (username , email , password)
 						VALUES ('$username' , '$email' , '$passwd' )";
 				$result = mysqli_query($conn , $sql);

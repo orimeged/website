@@ -22,6 +22,7 @@
 	if (isset($_POST['data']))
 	{
 		
+		var_dump($_SESSION['username']);
 		$name = $_SESSION['username']; 
 
 		$data = mysqli_real_escape_string($conn , $_POST['data']);
