@@ -7,6 +7,7 @@
 	if (isset($_POST['uname']) && isset($_POST['psw']))
 	{
 		$uname = mysqli_real_escape_string($conn , $_POST['uname']); 
+		var_dump($uname);
         $psw = mysqli_real_escape_string($conn , md5($_POST['psw'])); 
 		$result = mysqli_query($conn, "SELECT * FROM users WHERE username= '$uname' AND password = '$psw' ");
 	    if (mysqli_num_rows($result) > 0)
@@ -15,7 +16,7 @@
 			echo "We are in 1:\n";
 			var_dump($row);
 			$_SESSION['username'] = $row['username'];
-			 header ("Location: welcome.php")	;	
+			 //header ("Location: welcome.php")	;	
 		}
 		else
 		{

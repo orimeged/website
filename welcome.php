@@ -19,17 +19,17 @@
 
 	echo "</table>";
    
-	if (isset($_POST['but']))
+	if (isset($_POST['data']))
 	{
 		
 		var_dump($_SESSION['username']);
-		$name = $_SESSION['username']; 
+		$name =  mysqli_real_escape_string($conn , $_SESSION['username']); 
 
 		$data = mysqli_real_escape_string($conn , $_POST['data']);
 
-
+		
 		$sql = "INSERT INTO posts (name , data )
-			    VALUES ('$name' , '$data' )";
+				VALUES ('$name' , '$data' )";
 		$result = mysqli_query($conn , $sql);
 		if ($result)
 		{
@@ -37,9 +37,6 @@
 		}
 		else
 			 echo "<script>alert('Sorry, please do again')</script>"; 
-
-
-		
 
 	}
 	
@@ -60,7 +57,7 @@
 
 
 
-    <button type="submit" name = "but">Send</button>
+    <button type="submit" >Send</button>
 
 
   </div>
