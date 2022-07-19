@@ -30,13 +30,14 @@
 			}
 			else
 			{
+				var_dump($username);
 
 				$sql = "INSERT INTO users (username , email , password)
 						VALUES ('$username' , '$email' , '$passwd' )";
 				$result = mysqli_query($conn , $sql);
 				if ($result)
 				{
-                     header ("Location: login.php")	;				 
+                     //header ("Location: login.php")	;				 
 				}
 				else
 					 echo "<script>alert('Sorry, please do again')</script>"; 
