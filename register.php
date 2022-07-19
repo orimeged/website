@@ -11,8 +11,8 @@
 	
 	if (isset($_POST['registerBtn']))
 	{ 
-	    $username = $_POST['username']; 
-	    $email = $_POST['email']; 
+	    $username = mysqli_real_escape_string($conn  ,$_POST['username']); 
+	    $email = mysqli_real_escape_string($conn , $_POST['email']); 
 	    $passwd = md5($_POST['passwd']); 
 	    $passwd_again = md5($_POST['confirm_password']); 
     }
@@ -20,7 +20,8 @@
 	// make sure the two passwords match
 	if ($passwd === $passwd_again){
 		// make sure the password meets the min strength requirements
-		if ( strlen($passwd) >= 4   && strpbrk($email, "@.") != false ){
+		if ( strlen($passwd) >= 4   && strpbrk($email, "@.") != false )
+		{
 			$result = mysqli_query($conn, "SELECT * FROM users WHERE email='$email'  AND username = '$username'");
 			if (mysqli_num_rows($result) > 0)
 			{
@@ -42,7 +43,7 @@
 			$username = '';
 			$email = '';
 			$_POST['passwd'] = '';
-			
+			$_POST['confirm_password']= ''
 
 		}
 
