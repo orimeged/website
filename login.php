@@ -6,8 +6,8 @@
    	
 	if (isset($_POST['uname']) && isset($_POST['psw']))
 	{
-		$uname = $_POST['uname']; 
-        $psw = md5($_POST['psw']); 
+		$uname = mysqli_real_escape_string($conn , $_POST['uname']); 
+        $psw = mysqli_real_escape_string($conn , md5($_POST['psw'])); 
 		$result = mysqli_query($conn, "SELECT * FROM users WHERE username= '$uname' AND password = '$psw' ");
 	    if (mysqli_num_rows($result) > 0)
 		{
